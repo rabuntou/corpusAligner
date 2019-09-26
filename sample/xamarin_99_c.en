@@ -1,0 +1,68 @@
+*****h3*****
+In this article
+*****h1*****
+DataPages Controls Reference
+*****h3*****
+In this article
+Important
+DataPages requires a Xamarin.Forms Theme reference to render.
+The Xamarin.Forms DataPages Nuget includes a number of controls that can take advantage of data source binding.
+To use these controls in XAML, ensure the namespace has been included, for example see the xmlns:pages declaration below:
+The examples below include DynamicResource references which would need to exist in the project's resources dictionary to work. There is also an example of how to build a custom control
+*****h2*****
+Built-in Controls
+*****h3*****
+HeroImage
+The HeroImage control has four properties:
+Android
+iOS
+*****h3*****
+ListItem
+The ListItem control's layout is similar to native iOS and Android list or table rows, however it can also be used as a regular view. In the example code below it is shown hosted inside a StackLayout, but it can also be used in data-bound scolling list controls.
+There are five properties:
+These screenshots show the ListItem on iOS and Android platforms using both the Light and Dark themes:
+Android
+iOS
+*****h2*****
+Custom Control Example
+The goal of this custom CardView control is to resemble the native Android CardView.
+It will contain three properties:
+The goal is a custom control that will look like the code below (note that a custom xmlns:local is required that references the current assembly):
+It should look like the screenshots below using colors corresponding to the built-in Light and Dark themes:
+Android
+iOS
+*****h3*****
+Building the Custom CardView
+*****h4*****
+1. DataView Subclass
+The C# subclass of DataView defines the bindable properties for the control.
+*****h4*****
+2. Define Font, Layout, and Margins
+The control designer would figure out these values as part of the user-interface design for the custom control. Where platform-specific specifications are required, the OnPlatform element is used.
+Note that some values refer to StaticResources â€“ these will be defined in step 5.
+*****h4*****
+3. Create Styles for the Control's Children
+Reference all the elements defined about to create the children that will be used in the custom control:
+*****h4*****
+4. Create the Control Layout Template
+The visual design of the custom control is explicitly declared in the control template, using the resources defined above:
+*****h4*****
+5. Add the Theme-specific Resources
+Because this is a custom control, add the resources that match the theme you are using the resource dictionary:
+*****h5*****
+Light Theme Colors
+*****h5*****
+Dark Theme Colors
+*****h4*****
+6. Set the ControlTemplate for the CardView class
+Finally, ensure the C# class created in step 1 uses the control template defined in step 4 using a Style Setter element
+*****h4*****
+7. Add the Control to a Page
+The CardView control can now be added to a page. The example below shows it hosted in a StackLayout:
+*****h2*****
+Feedback
+We'd love to hear your thoughts. Choose the type you'd like to provide:
+Our new feedback system is built on GitHub Issues. Read about this change in our blog post.
+*****h3*****
+Liquid error: Can't find the localized string giveDocumentationFeedback for template Conceptual.
+Loading feedback...
